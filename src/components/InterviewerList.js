@@ -2,6 +2,7 @@ import React from "react";
 import InterviewerListItem from "components/InterviewerListItem";
 import "components/InterviewStyles.scss";
 
+
 export default function InterviewerList(props) {
   const interviewers = props.interviewers.map((interviewer) => {
     return (
@@ -11,7 +12,6 @@ export default function InterviewerList(props) {
       avatar={interviewer.avatar}
       selected={interviewer.id === props.value}
       setInterviewer={() => {
-        console.log("***", interviewer)
         props.onChange(interviewer.id)
       }}
     />
