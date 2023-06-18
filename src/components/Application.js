@@ -9,7 +9,7 @@ import { getInterviewersForDay } from "../helpers/selectors.js";
 
 
 export default function Application(props) {
-  const {state, setState, bookInterview, cancelInterview } = useApplicationData();
+  const {state, setDay, bookInterview, cancelInterview } = useApplicationData();
 
 
 
@@ -31,7 +31,7 @@ export default function Application(props) {
   <DayList 
     days={state.days}
     day={state.day}
-    setDay={ (day) => setState({ ...state, day })}
+    setDay={ setDay}
 />
  
 </nav>
@@ -57,6 +57,9 @@ export default function Application(props) {
           )
         } 
         )}
+        <Appointment
+        time={'5pm'}
+        />
       </section>
 
     </main>

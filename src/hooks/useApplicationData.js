@@ -21,9 +21,11 @@ export default function useApplicationData(props) {
       axios.get("http://localhost:8001/api/appointments"),
       axios.get("http://localhost:8001/api/interviewers"),
     ]).then((response) => {
+      console.log(response);
       // set your states here with the correct values...
       setState(prev => ({
-        ...prev, days: response[0].data,
+        ...prev, 
+        days: response[0].data,
         appointments: response[1].data,
         interviewers: response[2].data
       }));
