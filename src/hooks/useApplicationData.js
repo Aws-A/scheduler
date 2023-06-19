@@ -17,11 +17,11 @@ export default function useApplicationData(props) {
 
   useEffect(() => {
     Promise.all([
-      axios.get("http://localhost:8001/api/days"),
-      axios.get("http://localhost:8001/api/appointments"),
-      axios.get("http://localhost:8001/api/interviewers"),
+      axios.get("/api/days"),
+      axios.get("/api/appointments"),
+      axios.get("/api/interviewers"),
     ]).then((response) => {
-      console.log(response);
+      //console.log(response);
       // set your states here with the correct values...
       setState(prev => ({
         ...prev, 
@@ -59,7 +59,7 @@ export default function useApplicationData(props) {
       ...state.days[dayOfWeek],
       spots: state.days[dayOfWeek]
     }
-
+    console.log('Before Spots',day);
     if (!state.appointments[id].interview) {
       day = {
         ...state.days[dayOfWeek],
@@ -74,7 +74,7 @@ export default function useApplicationData(props) {
 
     let days = state.days
     days[dayOfWeek] = day;
-
+    console.log('Spots',day);
     return axios.put(`/api/appointments/${id}`, { interview }).then(() => {
       setState({
         ...state,
