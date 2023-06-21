@@ -21,3 +21,15 @@ npm test
 ```sh
 npm run storybook
 ```
+## Running Api Server
+
+```sh
+npm start
+```
+
+## Screenshots
+
+
+![](./docs/mainpage.png)
+![](./docs/edit.png)
+![](./docs/delete&error.png)

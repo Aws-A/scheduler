@@ -21,11 +21,11 @@ export function getInterview(state, interview) {
 }
 
 export function getInterviewersForDay(state, day) {
-  const selectedDay = state.days.find((d) => d.name === day);
+  const chosenDay = state.days.find((e) => e.name === day);
 
-  if (!selectedDay) {
+  if (!chosenDay) {
     return [];
   }
-  const interviewersFromDays = selectedDay.interviewers.map((interviewId) => state.interviewers[interviewId]);
+  const interviewersFromDays = chosenDay.interviewers.map((interviewId) => state.interviewers[interviewId]);
   return interviewersFromDays;
 }
