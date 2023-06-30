@@ -37,7 +37,7 @@ export default function Appointment(props) {
     //in Application.js, we used return axios which will return a promise, so we need to use .then() here,  .then uses an anonymous callback function
     props.bookInterview(props.id, interview)
       .then(() => { transition(SHOW) })
-      .catch(error => transition(ERROR_SAVE));
+      .catch(error => transition(ERROR_SAVE, true));
   }
 
   //remove function
@@ -100,14 +100,14 @@ export default function Appointment(props) {
            {mode === ERROR_SAVE && (
         <Error
           message="Could not save appointment."
-          onClose={back}
+          onClose={() => back()}
         />
       )}
 
       {mode === ERROR_DELETE && (
         <Error
           message="Could not cancel appointment."
-          onClose={back}
+          onClose={() => back()}
         />
       )}
     </article>
