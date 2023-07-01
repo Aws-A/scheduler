@@ -32,7 +32,7 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
-    transition(SAVING, true);
+    transition(SAVING);
 
     //in Application.js, we used return axios which will return a promise, so we need to use .then() here,  .then uses an anonymous callback function
     props.bookInterview(props.id, interview)
